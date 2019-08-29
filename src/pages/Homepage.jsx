@@ -9,9 +9,9 @@ const Homepage = () => {
       </ul>
       <ul>
         <li>TV Show 6</li>
-        <li>TV Show 2</li>
         <li>TV Show 3</li>
         <li>TV Show 4</li>
+        <li>TV Show 5</li>
       </ul>
     </>
   )
