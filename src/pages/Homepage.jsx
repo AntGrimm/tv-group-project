@@ -3,9 +3,6 @@ import React from 'react'
 const Homepage = () => {
   return (
     <>
-      <header>
-        <h1>Top Rated TV Shows</h1>
-      </header>
       <ul>
         <header>Top Rated TV Show of the Day!</header>
         <li>TV Show</li>
