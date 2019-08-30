@@ -53,12 +53,6 @@ const TvShow = () => {
           })}
         </ul>
       </section>
-      {/* <ul>
-        <li>Actors</li>
-        <li>Details</li>
-        <li>Year</li>
-        <li>TV Show 4</li>
-      </ul> */}
     </>
   )
 }
