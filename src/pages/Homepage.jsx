@@ -15,10 +15,11 @@ const Homepage = () => {
         <li>TV Show</li>
       </ul>
       <ul>
-        <li>TV Show 1</li>
+        <li>TV Show 4</li>
         <li>TV Show 2</li>
         <li>TV Show 3</li>
         <li>TV Show 4</li>
+        <li>TV Show 7</li>
         <li>TV Show 7</li>
       </ul>
     </>
