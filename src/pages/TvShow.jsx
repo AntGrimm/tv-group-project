@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 const TvShow = () => {
   // const tvSearchTerm = props.params.match.results
@@ -30,6 +31,7 @@ const TvShow = () => {
 
   return (
     <>
+      <Link to="/"> &laquo; Back </Link>
       <section>
         <ul>
           {showData.map((show, i) => {
