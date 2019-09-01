@@ -18,23 +18,26 @@ const Homepage = () => {
   }, [])
   return (
     <>
-      <header>Top Rated TV Show of the Day!</header>
-      <h2>Random tv show here</h2>
+      <h1 className="header">Top Rated TV Show of the Day!</h1>
+      <h2 className="rando-cont">Random tv show here</h2>
       {displayShows.map((results, i) => {
         return (
           <div key={i}>
-            <div className="image-cont">
-              <img
-                className="col s3"
-                src={`https://image.tmdb.org/t/p/w185_and_h278_bestv2${results.poster_path}`}
-                alt=""
-              />
-            </div>
-
-            <p>{results.name}</p>
-            <p>{results.first_air_date}</p>
-            <p>{results.overview}</p>
-            <p>Vote Average {results.vote_average}</p>
+            <section className="body-cont">
+              <div className="image-cont">
+                <img
+                  className="poster"
+                  src={`https://image.tmdb.org/t/p/w185_and_h278_bestv2${results.poster_path}`}
+                  alt=""
+                />
+              </div>
+              <div className="show-info-cont">
+                <h3 className="title">{results.name}</h3>
+                <p>First Aired {results.first_air_date}</p>
+                <p>{results.overview}</p>
+                <p>Vote Average {results.vote_average}</p>
+              </div>
+            </section>
           </div>
         )
       })}
@@ -43,26 +46,3 @@ const Homepage = () => {
 }
 
 export default Homepage
-
-{
-  /* <section className="show-list">
-          <div className="row">
-            {tvShows.map((tvShow, i) => {
-              return (
-                <div key={i} className="col l6 show-card-area">
-                  <div className="show-poster-area">
-                    <Link to={`/tv/${tvShow.id}`}>
-                      <img
-                        className="col s3"
-                        src={`https://image.tmdb.org/t/p/w185_and_h278_bestv2${tvShow.poster_path}`}
-                        alt=""
-                      />
-                    </Link>
-                  </div>
-                  <section className="col s6">
-                    <h3>{tvShow.name}</h3>
-                    <p>Rating: {tvShow.vote_average}</p>
-                    <p>First Aired: {tvShow.first_air_date}</p>
-                    <p>{tvShow.overview}</p>
-                  </section> */
-}

@@ -8,9 +8,7 @@ class App extends Component {
   render() {
     return (
       <>
-        <header>
-          <h1>TV Shows!</h1>
-        </header>
+        <header></header>
         <main>
           <Router>
             <Switch>
