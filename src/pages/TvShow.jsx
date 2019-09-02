@@ -22,12 +22,19 @@ const TvShow = props => {
     <>
       <Link to="/"> &laquo; Back </Link>
       <section>
-        <ul>
+        <ul className="actor-list">
           Cast:
           {castData.map((actor, j) => {
             return (
-              <li key={j}>
-                <p>{actor.name}</p>
+              <li className="actors" key={j}>
+                <Link to={`/${tvSearchTerm}/${actor.id}`}>
+                  <img
+                    className="actor-picture"
+                    src={`https://image.tmdb.org/t/p/w185_and_h278_bestv2${actor.profile_path}`}
+                    alt={`${actor.name}`}
+                  />
+                  <p className="actor-name">{actor.name}</p>
+                </Link>
               </li>
             )
           })}
