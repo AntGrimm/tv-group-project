@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import { Switch, BrowserRouter as Router, Route } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import TvShow from './TvShow.jsx'
 
 const Homepage = () => {
   const [displayShows, setDisplayShows] = useState([])
@@ -36,6 +39,8 @@ const Homepage = () => {
                 <p>First Aired {results.first_air_date}</p>
                 <p>{results.overview}</p>
                 <p>Vote Average {results.vote_average}</p>
+                <Link to="/TvShow">Cast</Link>
+                <Route exact path="/TvShow" component={TvShow}></Route>
               </div>
             </section>
           </div>
