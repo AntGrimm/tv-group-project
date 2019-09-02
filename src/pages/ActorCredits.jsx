@@ -28,6 +28,9 @@ const ActorCredits = props => {
           {actorData.map((shows, j) => {
             return (
               <li key={j}>
+                <img
+                  src={`https://image.tmdb.org/t/p/w185_and_h278_bestv2${shows.poster_path}`}
+                />
                 <p>{shows.name}</p>
               </li>
             )
