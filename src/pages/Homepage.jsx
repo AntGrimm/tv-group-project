@@ -4,8 +4,7 @@ import { Link } from 'react-router-dom'
 // import TvShow from './TvShow.jsx'
 
 const Homepage = () => {
-  const [displayShows, setDisplayShows] = useState([[]])
-
+  const [displayShows, setDisplayShows] = useState([])
   const [randomShow, setRandomShow] = useState(0)
 
   const fetchDataShows = async () => {
@@ -24,7 +23,7 @@ const Homepage = () => {
   return (
     <>
       <h1 className="header">Top Rated TV Show of the Day!</h1>
-      <h2 className="rando-cont">{displayShows[randomShow].name}</h2>
+      {/* <h2 className="rando-cont">{displayShows[randomShow].name}</h2> */}
       <main>
         {displayShows.map((results, i) => {
           return (
@@ -42,7 +41,7 @@ const Homepage = () => {
                   <p>First Aired {results.first_air_date}</p>
                   <p>{results.overview}</p>
                   <p>Vote Average {results.vote_average}</p>
-                  <Link to="/TvShow" className="cast-link">
+                  <Link to={`/${results.id}`} className="cast-link">
                     Cast
                   </Link>
                 </div>
