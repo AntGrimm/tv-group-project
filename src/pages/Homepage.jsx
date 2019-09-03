@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-// import TvShow from './TvShow.jsx'
 
 const Homepage = () => {
   const [displayShows, setDisplayShows] = useState([[]])
@@ -20,10 +19,19 @@ const Homepage = () => {
   useEffect(() => {
     fetchDataShows()
   }, [])
+
   return (
     <>
-      <h1 className="header">Top Rated TV Show of the Day!</h1>
-      <h2 className="rando-cont">{displayShows[randomShow].name}</h2>
+      <h1 className="header">Top Rated TV Shows!</h1>
+      <section className="random-show-section">
+        <h2 className="rando-cont">
+          Show of the Day: {displayShows[randomShow].name}
+        </h2>
+        <img
+          src={`https://image.tmdb.org/t/p/w185_and_h278_bestv2${displayShows[randomShow].poster_path}`}
+          alt={`poster for ${displayShows[randomShow].name}`}
+        />
+      </section>
       <main>
         {displayShows.map((results, i) => {
           return (
@@ -33,7 +41,7 @@ const Homepage = () => {
                   <img
                     className="poster"
                     src={`https://image.tmdb.org/t/p/w185_and_h278_bestv2${results.poster_path}`}
-                    alt=""
+                    alt={`Poster for ${results.name}`}
                   />
                 </div>
                 <div className="show-info-cont">
