@@ -23,7 +23,7 @@ const Homepage = () => {
   return (
     <>
       <h1 className="header">Top Rated TV Show of the Day!</h1>
-      <h2 className="rando-cont">{displayShows[randomShow].name}</h2>
+      {/* <h2 className="rando-cont">{displayShows[randomShow].name}</h2> */}
       <main>
         {displayShows.map((results, i) => {
           return (
