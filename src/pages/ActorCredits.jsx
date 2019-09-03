@@ -25,12 +25,13 @@ const ActorCredits = props => {
     <>
       <Link to={`/${showSearchTerm}`}> &laquo; Back </Link>
       <section>
-        <ul>
+        <ul className="tv-credit-list">
           TV Credits:
           {actorData.map((shows, j) => {
             return (
-              <li key={j}>
+              <li className="tv-credits" key={j}>
                 <img
+                  className="tv-credits-poster"
                   src={`https://image.tmdb.org/t/p/w185_and_h278_bestv2${shows.poster_path}`}
                 />
                 <p>{shows.name}</p>
