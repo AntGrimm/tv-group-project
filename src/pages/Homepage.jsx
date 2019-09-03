@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-import TvShow from './TvShow.jsx'
+// import TvShow from './TvShow.jsx'
 
 const Homepage = () => {
   const [displayShows, setDisplayShows] = useState([])
@@ -24,6 +24,7 @@ const Homepage = () => {
   return (
     <>
       <h1 className="header">Top Rated TV Show of the Day!</h1>
+<<<<<<< HEAD
       {/* <h2 className="rando-cont">{displayShows[randomShow].name}</h2> */}
       <main>
         {displayShows.map((results, i) => {
@@ -51,6 +52,31 @@ const Homepage = () => {
           )
         })}
       </main>
+=======
+      <h2 className="rando-cont">Random tv show here</h2>
+      {displayShows.map((results, i) => {
+        return (
+          <div key={i}>
+            <section className="body-cont">
+              <div className="image-cont">
+                <img
+                  className="poster"
+                  src={`https://image.tmdb.org/t/p/w185_and_h278_bestv2${results.poster_path}`}
+                  alt=""
+                />
+              </div>
+              <div className="show-info-cont">
+                <h3 className="title">{results.name}</h3>
+                <p>First Aired {results.first_air_date}</p>
+                <p>{results.overview}</p>
+                <p>Vote Average {results.vote_average}</p>
+                <Link to={`/${results.id}`}>Cast</Link>
+              </div>
+            </section>
+          </div>
+        )
+      })}
+>>>>>>> e53f45319f524b2766a7d05fed79621798f4e68d
     </>
   )
 }
