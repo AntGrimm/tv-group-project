@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 const ActorCredits = props => {
   const [actorData, setActorData] = useState([])
-  const actorSearchTerm = props.match.params.results
+  const actorSearchTerm = props.match.params.cast
   const showSearchTerm = props.match.params.results
 
   const fetchDataActors = async () => {
@@ -13,7 +13,7 @@ const ActorCredits = props => {
       `
     )
     console.log(resp.data)
-    setActorData(resp.data.cast)
+    setActorData(resp.data.results)
   }
 
   useEffect(() => {
