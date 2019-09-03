@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 const ActorCredits = props => {
   const [actorData, setActorData] = useState([])
   const actorSearchTerm = props.match.params.results
+  const showSearchTerm = props.match.params.results
 
   const fetchDataActors = async () => {
     const resp = await axios.get(
@@ -21,7 +22,7 @@ const ActorCredits = props => {
 
   return (
     <>
-      <Link to={`/${actorSearchTerm}`}> &laquo; Back </Link>
+      <Link to={`/${showSearchTerm}`}> &laquo; Back </Link>
       <section>
         <ul>
           TV Credits:
