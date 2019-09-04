@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 const ActorCredits = props => {
   const [actorData, setActorData] = useState([])
   const [creditsData, setCreditsData] = useState([])
+  const [movieCreditsData, setMovieCreditsData] = useState([])
   const actorSearchTerm = props.match.params.actors
   const showSearchTerm = props.match.params.results
 
@@ -26,9 +27,19 @@ const ActorCredits = props => {
     setCreditsData(resp.data.cast)
   }
 
+  const fetchDataMovieCredits = async () => {
+    const resp = await axios.get(
+      `https://api.themoviedb.org/3/person/${actorSearchTerm}/movie_credits?api_key=777aea70df4e4c6df6c5d0195ce2d746&language=en-US
+      `
+    )
+    console.log(resp.data)
+    setMovieCreditsData(resp.data.cast)
+  }
+
   useEffect(() => {
     fetchDataActors()
     fetchDataCredits()
+    fetchDataMovieCredits()
   }, [])
 
   return (
@@ -59,6 +70,25 @@ const ActorCredits = props => {
                   />
                   <p>{shows.name}</p>
                 </Link>
+                <p>{shows.character}</p>
+              </li>
+            )
+          })}
+        </ul>
+      </section>
+      <section>
+        <h1>Movie Credits:</h1>
+        <ul className="tv-credit-list">
+          {movieCreditsData.map((movie, i) => {
+            return (
+              <li className="tv-credits" key={i}>
+                <img
+                  className="tv-credits-poster"
+                  src={`https://image.tmdb.org/t/p/w185_and_h278_bestv2${movie.poster_path}`}
+                  alt={`Poster of ${movie.name}`}
+                />
+                <p>{movie.name}</p>
+                <p>{movie.character}</p>
               </li>
             )
           })}
