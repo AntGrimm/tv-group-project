@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 const TvShow = props => {
   const [castData, setCastData] = useState([])
   const [showData, setShowData] = useState([])
+  const [rateShow, setRateShow] = useState('')
   const tvSearchTerm = props.match.params.results
 
   const fetchDataShows = async () => {
@@ -21,6 +22,14 @@ const TvShow = props => {
     )
     console.log(resp.data)
     setCastData(resp.data.cast)
+  }
+
+  const rateTvShow = async e => {
+    e.preventDefault()
+    const resp = await axios.post(
+      `https://api.themoviedb.org/3/tv/${tvSearchTerm}/rating?api_key=777aea70df4e4c6df6c5d0195ce2d746&value=${rateShow}`
+    )
+    console.log(resp.data)
   }
 
   useEffect(() => {
@@ -42,6 +51,16 @@ const TvShow = props => {
           <p className="series-details-overview">{showData.overview}</p>
         </div>
       </section>
+      <form onSubmit={rateTvShow}>
+        <label>Rate this Show</label>
+        <input
+          type="text"
+          placeholder="Rate this Show 1-10"
+          value={rateShow}
+          onChange={e => setRateShow(e.target.value)}
+        />
+        <button>Submit</button>
+      </form>
       <section className="series-cast">
         <h1>Series Cast</h1>
         <ul className="actor-list">

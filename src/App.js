@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Homepage from './pages/Homepage'
 import TvShow from './pages/TvShow'
 import ActorCredits from './pages/ActorCredits'
+import NavBar from './components/NavBar'
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
@@ -12,6 +13,7 @@ class App extends Component {
         <header></header>
         <main>
           <Router>
+            <NavBar />
             <Switch>
               <Route exact path="/" component={Homepage}></Route>
               <Route exact path="/:results" component={TvShow}></Route>
