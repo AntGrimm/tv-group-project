@@ -22,7 +22,7 @@ const Homepage = () => {
 
   return (
     <>
-      <h1 className="header">Top Rated TV Shows!</h1>
+      <h1 className="header">Top Rated TV Shows</h1>
       <section className="random-show-section">
         <h2 className="rando-cont">
           Show of the Day: {displayShows[randomShow].name}
